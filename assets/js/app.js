@@ -57,7 +57,7 @@ database.ref().on("value", function (snapshot) {
     console.log(snapshot.val().frequency);
 
     // Change the HTML
-    // $("#displayed-data").text(snapshot.val().name + " | " + snapshot.val().age + " | " + snapshot.val().phone);
+    $("#train-data").text(snapshot.val().trainName + " | " + snapshot.val().destName + " | " + snapshot.val().firstTrain + " | " + snapshot.val().frequency);
 
     // If any errors are experienced, log them to console.
 }, function (errorObject) {
