@@ -1,0 +1,29 @@
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}
+
+/* mixin usage example for my reference */
+.row {
+  padding: 1rem;
+}
+
+.train-blue {
+  background-color: #337ab7;
+}
+
+.train-brown {
+  background-color: #7f462c;
+}
+
+/*************** CUSTOM BOOTSTRAP STYLING FOR PAGE ***************/
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: 0.25rem;
+}
+
+/*# sourceMappingURL=style.css.map */
