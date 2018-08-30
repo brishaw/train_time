@@ -57,7 +57,16 @@ database.ref().on("value", function (snapshot) {
     console.log(snapshot.val().frequency);
 
     // Change the HTML
-    $("#train-data").text(snapshot.val().trainName + " | " + snapshot.val().destName + " | " + snapshot.val().firstTrain + " | " + snapshot.val().frequency);
+    // $("#train-data").text(snapshot.val().trainName + " | " + snapshot.val().destName + " | " + snapshot.val().firstTrain + " | " + snapshot.val().frequency);
+
+var items = snapshot.val();
+
+    var rows = "";
+    $.each(items, function(){
+        rows += "<tr><td>" + snapshot.val().trainName + "</td><td>" + snapshot.val().destName + "</td><td>" + snapshot.val().firstTrain + "</td><td>" + snapshot.val().frequency + "</td></tr>" 
+    });
+
+    $(rows).appendTo("#train-schedule tbody");
 
     // If any errors are experienced, log them to console.
 }, function (errorObject) {
