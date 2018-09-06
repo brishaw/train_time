@@ -45,7 +45,7 @@
     </header>
     
     <main role="main">
-    
+
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <section class="jumbotron train-brown text-white text-center">
             <div class="container">
@@ -53,10 +53,9 @@
                 <p>Choo Choo. Chee Chee.</p>    
             </div>
         </section>
-    
-        <div class="container">
+        <div class="container"> 
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12">                 
                     <div class="card">
                         <div class="card-header train-blue text-white">
                             Current Train Schedule
@@ -134,7 +133,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button id="click-button" type="submit" class="btn btn-primary train-blue">Submit</button>
+                                <button id="click-button" type="submit" class="btn btn-primary train-blue" data-toggle="modal" data-target="#exampleModal">Submit</button>
                             </form>
                             
                         </div>
@@ -151,6 +150,27 @@
             <p>Brian Shaw 2018</p>
         </div>
     </footer>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Train successfully added</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> 
+            </div>
+        </div>
+    </div>
+</div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
@@ -161,5 +181,6 @@
     <!-- <script src="assets/js/moment-with-locales.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
     <script src="assets/js/app.js"></script>
+    <!-- <script src="assets/js/myParralax.js"></script> -->
 </body>
 </html>

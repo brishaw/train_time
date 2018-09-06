@@ -16,6 +16,8 @@ $train-brown: #7f462c;
 body {
     font: 100% $font-stack;
     color: $primary-color;
+    background: url('../images/train_1.png') top center no-repeat;
+    background-size: cover;
 }
 
 /* mixin usage example for my reference */
@@ -51,9 +53,6 @@ table {
         background-color: #dddddd;
         }
 }
-
-
-
 
 /*************** CUSTOM BOOTSTRAP STYLING FOR PAGE ***************/
 

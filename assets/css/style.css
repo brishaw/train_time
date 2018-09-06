@@ -1,6 +1,8 @@
 body {
   font: 100% Helvetica, sans-serif;
   color: #333;
+  background: url("../images/train_1.png") top center no-repeat;
+  background-size: cover;
 }
 
 /* mixin usage example for my reference */
