@@ -120,7 +120,7 @@ database.ref().on("child_added", function (childSnapshot) {
         // $("<td>").text(nextArrival),
         $("<td>").text(nextTrain.format("HH:mm")),
         // $("<td>").text(minAway)
-        $("<td>").text(nextTrain.format("HH:mm"))
+        $("<td>").text(minNextTrain)
     );
 
     // Append the new row to the table
