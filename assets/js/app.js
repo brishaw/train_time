@@ -14,7 +14,6 @@ firebase.initializeApp(config);
 console.log("On your marks...get set...GO!");
 //*****************************************//
 
-
 // Variables
 // ================================================================================
 
@@ -24,12 +23,6 @@ var database = firebase.database();
 // Initial Variables (SET the first set IN FIREBASE FIRST)
 // Note remember to create these same variables in Firebase!
 
-// var trainName = "";
-// var trainDest = "";
-// var firstTrain = "";
-// var frequency = "";
-// var minAway = "";
-
 // Click Button changes what is stored in firebase
 $("#click-button").on("click", function (event) {
     // Prevent the page from refreshing
@@ -38,13 +31,11 @@ $("#click-button").on("click", function (event) {
     // Get inputs
     var trainName = $("#train-name").val().trim();
     var trainDest = $("#train-dest").val().trim();
-    //var firstTrain = $("#first-train").val().trim();
     var firstTrain = moment($("#first-train").val().trim(), "HH:mm").format("X");
     var frequency = $("#freq").val().trim();
     var nextArrival = "";
     var minAway = "";
 
-    
     // Change what is saved in firebase
     var newTrain = {
         trainName: trainName,
@@ -57,19 +48,13 @@ $("#click-button").on("click", function (event) {
 
     database.ref().push(newTrain);
 
-
-
-    // Create a new post reference with an auto-generated id
-    // var newPostRef = database.ref().push();
-    // newPostRef.set({
-    //     testTest: testTest
-    // });
-
     // Clears all of the text-boxes
     $("#train-name").val("");
     $("#train-dest").val("");
     $("#first-train").val("");
     $("#freq").val("");
+    
+    console.log("firstTrain after clears text boxes: " + firstTrain);
 
 }); // end click-button function
 
@@ -87,7 +72,7 @@ database.ref().on("child_added", function (childSnapshot) {
     var nextArrival = childSnapshot.val().nextArrival;
     var minAway = childSnapshot.val().minAway;
 
-
+    console.log("firstTrain after childSnapshot: " + firstTrain);
 
     // Log the value of the various properties
     console.log("childSnapshot trainName: " + childSnapshot.val().trainName);
@@ -97,18 +82,33 @@ database.ref().on("child_added", function (childSnapshot) {
     console.log("childSnapshot nextArrival: " + childSnapshot.val().nextArrival);
     console.log("childSnapshot minAway: " + childSnapshot.val().minAway);
 
-// make the firstTrain look nicer
+    // make the firstTrain look nicer
+    var niceFirstTrain = moment.unix(firstTrain).format("HH:mm");
+    console.log("niceFirstTrain: " + niceFirstTrain);
 
-var niceFirstTrain = moment.unix(firstTrain).format("HH:mm");
-console.log("niceFirstTrain: " + niceFirstTrain);
+    var currentTime = moment();
+    console.log("current time: " + currentTime);
 
-var currentTime = moment().format("X");
-console.log("current time: " + currentTime);
+    // pushing time back 1 year to make sure it comes before current time...???
+    var firstTrainConverted = moment(firstTrain, "HH:mm").subtract(1, "years");
+    console.log("firsTrainConverted: " + firstTrainConverted);
 
+    // difference between the times
+    var diffTime = moment().diff(moment(firstTrainConverted), "minutes");
+    console.log("diffTime?!: " + diffTime);
 
+    // the time apart or remainder using modulus
+    var trainRemainder = diffTime % frequency;
+    console.log("trainRemainder: " + trainRemainder);
 
-    // Difference between the times
-    // var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+    // minutes until next train
+    var minNextTrain = (frequency - trainRemainder);
+    console.log("minNextTrain: " + minNextTrain);
+
+    // the next train
+    var nextTrain = moment().add(minNextTrain, "minutes");
+    console.log("nextTrain (arrival time): " + nextTrain);
+        console.log("nextTrain formatted (arrival time): " + moment(nextTrain).format("HH:mm"));
 
     // *****************************
     // Create the new row
@@ -117,46 +117,30 @@ console.log("current time: " + currentTime);
         $("<td>").text(trainDest),
         //$("<td>").text(firstTrain),
         $("<td>").text(frequency),
-        $("<td>").text(nextArrival),
-        $("<td>").text(minAway)
+        // $("<td>").text(nextArrival),
+        $("<td>").text(nextTrain.format("HH:mm")),
+        // $("<td>").text(minAway)
+        $("<td>").text(nextTrain.format("HH:mm"))
     );
 
     // Append the new row to the table
     $("#train-schedule > tbody").prepend(newRow);
 
-
-    // *****************************
-
-
-
-
-    // Change the HTML
-    // $("#train-data").text(snapshot.val().trainName + " | " + snapshot.val().destName + " | " + snapshot.val().firstTrain + " | " + snapshot.val().frequency);
-
-
-
-    // *****************************
-
-    // trying to populate the table...
-
-    // var items = snapshot.val();
-
-    // var rows = "";
-
-    //     $.each(items, function(){
-    //         rows += "<tr><td>" + snapshot.val().trainName + "</td><td>" + snapshot.val().destName + "</td><td>" + snapshot.val().firstTrain + "</td><td>" + snapshot.val().frequency + "</td></tr>" 
-    //     });
-
-
-    //     $(rows).prependTo("#train-schedule tbody");
-
-    // *****************************
-
-    // If any errors are experienced, log them to console.
 }, function (errorObject) {
     console.log("The read failed: " + errorObject.code);
 });
 
-var x = moment();
-console.log("moment(): " + x);
-console.log("moment().format(HH.mm): " + x.format("HH:mm"));
+/**************************/
+
+// current time for display
+//$("#time-now").append(moment().format("HH:mm"));
+
+
+// var timeNow = setInterval(clockElement, 1000);
+
+// function clockElement(){
+//      var t = moment().format("HH:mm");
+//     $("#time-now").append(t);
+// }
+
+/**************************/
