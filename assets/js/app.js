@@ -1,3 +1,4 @@
+
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyAuXTMvgIZ3Uj7aI9m_-WM8fpIYN1Ph4LI",
@@ -113,34 +114,80 @@ database.ref().on("child_added", function (childSnapshot) {
     // *****************************
     // Create the new row
     var newRow = $("<tr>").append(
-        $("<td>").text(trainName),
+
+        $("<td scope='row'>").text(trainName),
+
         $("<td>").text(trainDest),
-        //$("<td>").text(firstTrain),
+
         $("<td>").text(frequency),
-        // $("<td>").text(nextArrival),
+
         $("<td>").text(nextTrain.format("HH:mm")),
-        // $("<td>").text(minAway)
+
         $("<td>").text(minNextTrain)
     );
 
     // Append the new row to the table
     $("#train-schedule > tbody").prepend(newRow);
 
+    // colorIZE my tables
+     if(minNextTrain <= 10) {
+         $(newRow).addClass("table-warning");
+     } else if(minNextTrain >= 6) {
+         $(newRow).removeClass("table-warning");
+     }
+    if (minNextTrain <= 5) {
+        $(newRow).addClass("table-danger");
+    } else if (minNextTrain > 5) {
+        $(newRow).removeClass("table-danger");
+    }
+
 }, function (errorObject) {
+
     console.log("The read failed: " + errorObject.code);
+
 });
 
 /**************************/
 
 // current time for display
-//$("#time-now").append(moment().format("HH:mm"));
+$("#time-now").append(moment().format("HH:mm"));
+$("#time-now").addClass("time-style");
 
+var timeNow = setInterval(clockElement, 1000);
 
-// var timeNow = setInterval(clockElement, 1000);
-
-// function clockElement(){
-//      var t = moment().format("HH:mm");
-//     $("#time-now").append(t);
-// }
+function clockElement(){
+     var t = moment().format("HH:mm");
+    $("#time-now").html(t);
+}
 
 /**************************/
+
+/**************************/
+
+$(window).resize(function () {
+   
+    if ($(window).width() <= 768) 
+    
+        $("#train-schedule").addClass("table-sm");
+
+    else $("#train-schedule").removeClass("table-sm");
+
+});
+
+window.onload = function() {
+
+    if ($(window).width() < 768) {
+
+        $("#train-schedule").addClass("table-sm");
+    } else {
+        
+        $("#train-schedule").removeClass("table-sm");
+    }
+
+}
+
+/**************************/
+
+
+
+

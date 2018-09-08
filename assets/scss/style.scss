@@ -93,3 +93,9 @@ footer {
 footer p {
   margin-bottom: .25rem;
 }
+
+@media only screen and (max-width: 520px) {
+    table {
+        font-size: .5rem;
+    }
+}
