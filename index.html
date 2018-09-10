@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="navbar navbar-dark train-header shadow-sm">
             <div class="container d-flex justify-content-between">
                 <a href="#" class="navbar-brand d-flex align-items-center">
                     <i class="fas fa-train mr-2"></i>
@@ -47,7 +47,7 @@
     <main role="main">
 
         <!-- Main jumbotron for a primary marketing message or call to action -->
-        <section class="jumbotron train-brown text-white text-center">
+        <section class="jumbotron train-jumbo text-white text-center no-br">
             <div class="container">
                 <h1 class="display-3">Anytime is Train Time</h1>
                 <p>Choo Choo. Chee Chee.</p>    
@@ -56,10 +56,10 @@
         <div class="container"> 
             <div class="row">
                 <div class="col-md-12">                 
-                    <div class="card">
-                        <div class="card-header train-blue text-white">Current Train Schedule<span id="time-now"></span></div>
+                    <div class="card train-border-color">
+                        <div class="card-header train-card-header text-white">Current Train Schedule<span id="time-now"></span></div>
                             <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
+                                <!-- <h5 class="card-title">Special title treatment</h5> -->
                                 <p id="train-data"></p>
                             
                             <table id="train-schedule" class="table">
@@ -84,8 +84,8 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header train-blue text-white">
+                    <div class="card train-border-color">
+                        <div class="card-header train-card-header text-white">
                             Add Train
                         </div>
                         <div class="card-body">
@@ -131,7 +131,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button id="click-button" type="submit" class="btn btn-primary train-blue" data-toggle="modal" data-target="#exampleModal">Submit</button>
+                                <button id="click-button" type="submit" class="btn train-button train-card-header" data-toggle="modal" data-target="#exampleModal">Submit</button>
                             </form>
                             
                         </div>
@@ -140,7 +140,7 @@
             </div>
         </div><!-- end container -->
 
-    <footer class="text-muted bg-light">
+    <footer class="text-white train-footer">
         <div class="container">
             <p class="float-right">
                 <a href="#">Back to top</a>

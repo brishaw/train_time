@@ -2,16 +2,21 @@ $font-stack: Helvetica, sans-serif;
 $primary-color: #333;
 
 
-$train-blue: #337ab7;
-$train-brown: #7f462c;
+$train-green: #243624;
+$train-jumbo: $train-green;
+$train-card-header: #578258;
+$train-header: #2C422D;
+$train-footer: #223322;
+$train-border-color: #81C282;
+$white: #ffffff;
+$text: #81C282;
+$text-hover: #578258;
 
 @mixin transform($property) {
     -webkit-transform: $property;
     -ms-transform: $property;
     transform: $property;
 }
-
-
 
 body {
     font: 100% $font-stack;
@@ -25,17 +30,63 @@ body {
 //     @include transform(rotate(30deg));
 // }
 
+a {
+    color: $text;
+
+    &:hover {
+        color: $text-hover;
+    }
+}
+
 .row {
     padding: 1rem;
 }
 
-
-.train-blue {
-    background-color: $train-blue;
+.no-br {
+    border-radius: 0;
 }
 
-.train-brown {
-    background-color: $train-brown;
+.time-style {
+    float: right;
+
+    &::after {
+        clear: both;
+    }
+}
+
+.train-header {
+    background-color: $train-header;
+}
+
+.train-footer {
+    background-color: $train-footer;
+}
+
+.train-jumbo {
+    background-color: #243624;
+}
+
+.train-card-header {
+    background-color: $train-card-header;
+}
+
+.train-border-color {
+    border-color: $train-border-color;
+}
+
+.train-button {
+    background-color: $train-green;
+    border-color: $train-border-color;
+    border-style: solid;
+    color: $white;
+
+    &:hover {
+        background-color: #2C422D;
+    }
+}
+
+.text-white {
+    color: $white;
 }
 
 table {

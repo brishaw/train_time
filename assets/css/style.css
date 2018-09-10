@@ -6,16 +6,60 @@ body {
 }
 
 /* mixin usage example for my reference */
+a {
+  color: #81C282;
+}
+a:hover {
+  color: #578258;
+}
+
 .row {
   padding: 1rem;
 }
 
-.train-blue {
-  background-color: #337ab7;
+.no-br {
+  border-radius: 0;
 }
 
-.train-brown {
-  background-color: #7f462c;
+.time-style {
+  float: right;
+}
+.time-style::after {
+  clear: both;
+}
+
+.train-header {
+  background-color: #2C422D;
+}
+
+.train-footer {
+  background-color: #223322;
+}
+
+.train-jumbo {
+  background-color: #243624;
+}
+
+.train-card-header {
+  background-color: #578258;
+}
+
+.train-border-color {
+  border-color: #81C282;
+}
+
+.train-button {
+  background-color: #243624;
+  border-color: #81C282;
+  border-style: solid;
+  color: #ffffff;
+}
+.train-button:hover {
+  background-color: #2C422D;
+}
+
+.text-white {
+  color: #ffffff;
 }
 
 table {
