@@ -46,12 +46,31 @@ a {
     border-radius: 0;
 }
 
+.no-mar {
+    margin: 0;
+}
+
 .time-style {
     float: right;
 
     &::after {
         clear: both;
     }
+}
+
+.y-square {
+    width: 100%;
+    height: 25px;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #FCEEC0;
+}
+
+.r-square {
+    width: 100%;
+    height: 25px;
+    padding: 5px;
+    background-color: #EEC8CB;
 }
 
 .train-header {

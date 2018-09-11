@@ -29,6 +29,9 @@ $("#click-button").on("click", function (event) {
     // Prevent the page from refreshing
     event.preventDefault();
 
+    
+
+
     // Get inputs
     var trainName = $("#train-name").val().trim();
     var trainDest = $("#train-dest").val().trim();
@@ -36,6 +39,24 @@ $("#click-button").on("click", function (event) {
     var frequency = $("#freq").val().trim();
     var nextArrival = "";
     var minAway = "";
+
+    console.log("revised FirstTrain: " + firstTrain);
+
+    if (trainName == 0 || trainDest == 0 || firstTrain === "Invalid date" || frequency == 0) {
+
+        $('#modalFail').modal({
+            show: true
+        });
+
+        return;
+
+    } else {
+
+        $('#modalSuccess').modal({
+            show: true
+        })
+    }
+    
 
     // Change what is saved in firebase
     var newTrain = {
@@ -189,5 +210,18 @@ window.onload = function() {
 /**************************/
 
 
+// $("#click-button").click(function (event) {
 
+//     // Fetch form to apply custom Bootstrap validation
+//     var form = $("#myForm")
+
+//     if (form[0].checkValidity() === false) {
+//         event.preventDefault()
+//         event.stopPropagation()
+//     }
+
+//     form.addClass('was-validated');
+//     // Perform ajax submit here...
+
+// });
 
