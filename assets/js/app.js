@@ -35,14 +35,15 @@ $("#click-button").on("click", function (event) {
     // Get inputs
     var trainName = $("#train-name").val().trim();
     var trainDest = $("#train-dest").val().trim();
-    var firstTrain = moment($("#first-train").val().trim(), "HH:mm").format("X");
+    // var firstTrain = moment($("#first-train").val().trim(), "HH:mm").format("X");
+    var firstTrain = $("#first-train").val().trim();
     var frequency = $("#freq").val().trim();
     var nextArrival = "";
     var minAway = "";
 
     console.log("revised FirstTrain: " + firstTrain);
 
-    if (trainName == 0 || trainDest == 0 || firstTrain === "Invalid date" || frequency == 0) {
+    if (trainName == 0 || trainDest == 0 || firstTrain == 0 || firstTrain == NaN|| frequency == 0) {
 
         $('#modalFail').modal({
             show: true
@@ -108,12 +109,13 @@ database.ref().on("child_added", function (childSnapshot) {
     var niceFirstTrain = moment.unix(firstTrain).format("HH:mm");
     console.log("niceFirstTrain: " + niceFirstTrain);
 
-    var currentTime = moment();
-    console.log("current time: " + currentTime);
-
     // pushing time back 1 year to make sure it comes before current time...???
     var firstTrainConverted = moment(firstTrain, "HH:mm").subtract(1, "years");
     console.log("firsTrainConverted: " + firstTrainConverted);
+
+    // Current Time
+    var currentTime = moment();
+    console.log("current time: " + currentTime);
 
     // difference between the times
     var diffTime = moment().diff(moment(firstTrainConverted), "minutes");
@@ -124,7 +126,7 @@ database.ref().on("child_added", function (childSnapshot) {
     console.log("trainRemainder: " + trainRemainder);
 
     // minutes until next train
-    var minNextTrain = (frequency - trainRemainder);
+    var minNextTrain = frequency - trainRemainder;
     console.log("minNextTrain: " + minNextTrain);
 
     // the next train
@@ -207,24 +209,5 @@ window.onload = function() {
 
 }
 
-/**************************/
 
-
-// $("#click-button").click(function (event) {
-
-//     // Fetch form to apply custom Bootstrap validation
-//     var form = $("#myForm")
-
-//     if (form[0].checkValidity() === false) {
-//         event.preventDefault()
-//         event.stopPropagation()
-//     }
-
-//     form.addClass('was-validated');
-//     // Perform ajax submit here...
-
-// });
-
-/**************************/
-
-
+console.log("*****MOMENT TESTING*****" + moment(1536764184238).format("HH:mm"));
