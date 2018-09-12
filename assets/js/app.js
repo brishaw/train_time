@@ -43,7 +43,7 @@ $("#click-button").on("click", function (event) {
 
     console.log("revised FirstTrain: " + firstTrain);
 
-    if (trainName == 0 || trainDest == 0 || firstTrain == 0 || firstTrain == NaN|| frequency == 0) {
+    if (trainName == 0 || trainDest == 0 || firstTrain == 0 || frequency == 0) {
 
         $('#modalFail').modal({
             show: true
@@ -210,4 +210,4 @@ window.onload = function() {
 }
 
 
-console.log("*****MOMENT TESTING*****" + moment(1536764184238).format("HH:mm"));
+//**********//
