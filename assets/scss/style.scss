@@ -2,15 +2,25 @@ $font-stack: Helvetica, sans-serif;
 $primary-color: #333;
 
 
-$train-green: #243624;
+// $train-green: #243624;
+// $train-jumbo: $train-green;
+// $train-card-header: #578258;
+// $train-header: #2C422D;
+// $train-footer: #223322;
+// $train-border-color: #81C282;
+// $white: #ffffff;
+// $text: #81C282;
+// $text-hover: #578258;
+
+$train-green: #000000;
 $train-jumbo: $train-green;
-$train-card-header: #578258;
-$train-header: #2C422D;
-$train-footer: #223322;
-$train-border-color: #81C282;
+$train-card-header: #18052e;
+$train-header: rgb(29, 5, 56);
+$train-footer: #110222;
+$train-border-color: #7504f5;
 $white: #ffffff;
-$text: #81C282;
-$text-hover: #578258;
+$text: rgb(255, 255, 255);
+$text-hover: #9f0fff;
 
 @mixin transform($property) {
     -webkit-transform: $property;
@@ -21,7 +31,7 @@ $text-hover: #578258;
 body {
     font: 100% $font-stack;
     color: $primary-color;
-    background: url('../images/train_1.png') top center no-repeat;
+    background: url('../images/train_1.png') fixed no-repeat;
     background-size: cover;
 }
 
@@ -61,15 +71,14 @@ a {
 .y-square {
     width: 100%;
     height: 25px;
-    margin-bottom: 5px;
-    padding: 5px;
+    padding: 4px 5px 0 5px;
     background-color: #FCEEC0;
 }
 
 .r-square {
     width: 100%;
     height: 25px;
-    padding: 5px;
+    padding: 4px 5px 0 5px;
     background-color: #EEC8CB;
 }
 
@@ -79,10 +88,11 @@ a {
 
 .train-footer {
     background-color: $train-footer;
+    border-top: 2px solid $train-border-color;
 }
 
 .train-jumbo {
-    background-color: #243624;
+    background-color: $train-jumbo;
 }
 
 .train-card-header {
@@ -123,6 +133,12 @@ table {
         background-color: #dddddd;
         }
 }
+
+/*************************************************************/
+
+
+
+
 
 /*************** CUSTOM BOOTSTRAP STYLING FOR PAGE ***************/
 

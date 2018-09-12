@@ -1,16 +1,16 @@
 body {
   font: 100% Helvetica, sans-serif;
   color: #333;
-  background: url("../images/train_1.png") top center no-repeat;
+  background: url("../images/train_1.png") fixed no-repeat;
   background-size: cover;
 }
 
 /* mixin usage example for my reference */
 a {
-  color: #81C282;
+  color: white;
 }
 a:hover {
-  color: #578258;
+  color: #9f0fff;
 }
 
 .row {
@@ -35,41 +35,41 @@ a:hover {
 .y-square {
   width: 100%;
   height: 25px;
-  margin-bottom: 5px;
-  padding: 5px;
+  padding: 4px 5px 0 5px;
   background-color: #FCEEC0;
 }
 
 .r-square {
   width: 100%;
   height: 25px;
-  padding: 5px;
+  padding: 4px 5px 0 5px;
   background-color: #EEC8CB;
 }
 
 .train-header {
-  background-color: #2C422D;
+  background-color: #1d0538;
 }
 
 .train-footer {
-  background-color: #223322;
+  background-color: #110222;
+  border-top: 2px solid #7504f5;
 }
 
 .train-jumbo {
-  background-color: #243624;
+  background-color: #000000;
 }
 
 .train-card-header {
-  background-color: #578258;
+  background-color: #18052e;
 }
 
 .train-border-color {
-  border-color: #81C282;
+  border-color: #7504f5;
 }
 
 .train-button {
-  background-color: #243624;
-  border-color: #81C282;
+  background-color: #000000;
+  border-color: #7504f5;
   border-style: solid;
   color: #ffffff;
 }
@@ -95,6 +95,7 @@ table tr:nth-child(even) {
   background-color: #dddddd;
 }
 
+/*************************************************************/
 /*************** CUSTOM BOOTSTRAP STYLING FOR PAGE ***************/
 footer {
   padding-top: 3rem;
