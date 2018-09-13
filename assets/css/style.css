@@ -29,6 +29,21 @@ a:hover {
   margin: 0;
 }
 
+.bg-modal {
+  background-color: #18052e;
+  border-radius: 0;
+  padding: 1.3rem;
+}
+
+.bg-modal-warning {
+  border-radius: 0;
+  padding: 1.3rem;
+}
+
+.op-1 {
+  opacity: 1;
+}
+
 .time-style {
   float: right;
 }
