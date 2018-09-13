@@ -9,7 +9,6 @@
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
     <header>
         <div class="collapse bg-dark" id="navbarHeader">
             <div class="container">
@@ -18,6 +17,9 @@
                         <h4 class="text-white">About Train Time</h4>
                         <p class="text-muted">Train Time is a mobile-friendly train schedule application that incorporates Firebase and Moment.js to host arrival and departure data.</p>
                         <p class="text-muted">This project has helped me learn how to use Google's Firebase Realtime Database and Moment.js together, creating a useful tool that is interactive and inspiring.</p>
+                    </div>
+                    <div class="col-md-5">
+                        
                     </div>
                 </div>
             </div>
@@ -35,17 +37,13 @@
             </div>
         </div>
     </header>
-    
     <main role="main">
-
-        <!-- Main jumbotron for a primary marketing message or call to action -->
-        <section class="jumbotron train-jumbo text-white text-center no-br">
+        <section class="jumbotron train-jumbo text-white text-center no-br bb">
             <div class="container">
                 <h1 class="display-3 title-1">Anytime is Train Time</h1>
                 <p>Choo Choo. Chee Chee.</p>  
             </div>
         </section>
-
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -93,7 +91,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-md-12">
                     <div class="card train-border-color">
@@ -101,50 +98,38 @@
                             Add Train
                         </div>
                         <div class="card-body">
-                
-                            
                             <form id="myForm" class="needs-validation" novalidate>
-                            
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
                                         <label for="train-name">Train Name</label>
                                         <input type="text" class="form-control" id="train-name" placeholder="" value="" required>
                                     </div>
                                 </div>
-                            
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
                                         <label for="dest-name">Destination</label>
                                         <input type="text" class="form-control" id="train-dest" placeholder="" value="" required>
                                     </div>
                                 </div>
-                            
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
                                         <label for="first-train">First Train Time (HH:mm - military time)</label>
                                         <input type="text" class="form-control" id="first-train" placeholder="" value="" required>
                                     </div>
                                 </div>
-                            
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
                                         <label for="freq">Frequency (min)</label>
                                         <input type="text" class="form-control" id="freq" placeholder="" value="" required>
                                     </div>
                                 </div>
-                                <!-- <button id="click-button" type="submit" class="btn train-button train-card-header" value="validate">Submit</button> -->
                                 <button id="click-button" type="submit" class="btn train-button train-card-header">Submit</button>
                             </form>
-
-
-
-                            
                         </div>
                     </div>
                 </div>
             </div>
         </div><!-- end container -->
-
     <footer class="text-white train-footer">
         <div class="container">
             <p class="float-right">
@@ -153,13 +138,12 @@
             <p>Brian Shaw 2018</p>
         </div>
     </footer>
-
 <!-- Modal -->
-<div class="modal fade" id="modalSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalSuccess" tabindex="-1" role="dialog" aria-labelledby="Success Modal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Train Schedule</h5>
+                <h5 class="modal-title" id="successModal">Train Schedule</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -174,17 +158,36 @@
     </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="modalFail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalFail" tabindex="-1" role="dialog" aria-labelledby="Fail Modal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModal2Label"></h5>
+                <h5 class="modal-title" id="failModal"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <p>No Fields Can Be Left Empty</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modalFormat" tabindex="-1" role="dialog" aria-labelledby="Format Modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="formatModal"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>You Must Enter a Valid Number.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -200,9 +203,8 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-    <!-- <script src="assets/js/moment-with-locales.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 </html>

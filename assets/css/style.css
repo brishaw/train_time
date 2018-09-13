@@ -21,6 +21,10 @@ a:hover {
   border-radius: 0;
 }
 
+.bb {
+  border-bottom: 1px solid #7504f5;
+}
+
 .no-mar {
   margin: 0;
 }
@@ -96,7 +100,6 @@ table tr:nth-child(even) {
 }
 
 /*************************************************************/
-/*************** CUSTOM BOOTSTRAP STYLING FOR PAGE ***************/
 footer {
   padding-top: 3rem;
   padding-bottom: 3rem;

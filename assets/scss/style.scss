@@ -1,19 +1,8 @@
 $font-stack: Helvetica, sans-serif;
 $primary-color: #333;
 
-
-// $train-green: #243624;
-// $train-jumbo: $train-green;
-// $train-card-header: #578258;
-// $train-header: #2C422D;
-// $train-footer: #223322;
-// $train-border-color: #81C282;
-// $white: #ffffff;
-// $text: #81C282;
-// $text-hover: #578258;
-
-$train-green: #000000;
-$train-jumbo: $train-green;
+$train-black: #000000;
+$train-jumbo: $train-black;
 $train-card-header: #18052e;
 $train-header: rgb(29, 5, 56);
 $train-footer: #110222;
@@ -56,6 +45,9 @@ a {
     border-radius: 0;
 }
 
+.bb {
+    border-bottom: 1px solid $train-border-color;
+}
 .no-mar {
     margin: 0;
 }
@@ -104,7 +96,7 @@ a {
 }
 
 .train-button {
-    background-color: $train-green;
+    background-color: $train-black;
     border-color: $train-border-color;
     border-style: solid;
     color: $white;
@@ -136,40 +128,6 @@ table {
 
 /*************************************************************/
 
-
-
-
-
-/*************** CUSTOM BOOTSTRAP STYLING FOR PAGE ***************/
-
-// :root {
-//   --jumbotron-padding-y: 3rem;
-// }
-
-// .jumbotron {
-//   padding-top: var(--jumbotron-padding-y);
-//   padding-bottom: var(--jumbotron-padding-y);
-//   margin-bottom: 0;
-//   background-color: #fff;
-// }
-// @media (min-width: 768px) {
-//   .jumbotron {
-//     padding-top: calc(var(--jumbotron-padding-y) * 2);
-//     padding-bottom: calc(var(--jumbotron-padding-y) * 2);
-//   }
-// }
-
-// .jumbotron p:last-child {
-//   margin-bottom: 0;
-// }
-
-// .jumbotron-heading {
-//   font-weight: 300;
-// }
-
-// .jumbotron .container {
-//   max-width: 40rem;
-// }
 
 footer {
   padding-top: 3rem;

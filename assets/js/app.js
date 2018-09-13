@@ -21,31 +21,36 @@ console.log("On your marks...get set...GO!");
 // Get a reference to the database service
 var database = firebase.database();
 
-// Initial Variables (SET the first set IN FIREBASE FIRST)
-// Note remember to create these same variables in Firebase!
+// Initial Variables
 
 // Click Button changes what is stored in firebase
 $("#click-button").on("click", function (event) {
     // Prevent the page from refreshing
     event.preventDefault();
 
-    
-
-
     // Get inputs
     var trainName = $("#train-name").val().trim();
     var trainDest = $("#train-dest").val().trim();
-    // var firstTrain = moment($("#first-train").val().trim(), "HH:mm").format("X");
     var firstTrain = $("#first-train").val().trim();
     var frequency = $("#freq").val().trim();
     var nextArrival = "";
     var minAway = "";
 
-    console.log("revised FirstTrain: " + firstTrain);
+    var timeReg = /^([01]\d|2[0-3]):?([0-5]\d)$/;
+    var reg = /^\d+$/;
 
+    // Validate my fields
     if (trainName == 0 || trainDest == 0 || firstTrain == 0 || frequency == 0) {
 
         $('#modalFail').modal({
+            show: true
+        });
+
+        return;
+
+    } else if (timeReg.test(firstTrain) == false || reg.test(frequency) == false) {
+
+        $('#modalFormat').modal({
             show: true
         });
 
@@ -57,7 +62,6 @@ $("#click-button").on("click", function (event) {
             show: true
         })
     }
-    
 
     // Change what is saved in firebase
     var newTrain = {
@@ -81,8 +85,7 @@ $("#click-button").on("click", function (event) {
 
 }); // end click-button function
 
-// Firebase is always watching for changes to the data.
-// When changes occurs it will print them to console and html
+// When Firebase changes occurs it will print them to console and html
 database.ref().on("child_added", function (childSnapshot) {
 
     // Print the initial data to the console.
@@ -92,8 +95,6 @@ database.ref().on("child_added", function (childSnapshot) {
     var trainDest = childSnapshot.val().trainDest;
     var firstTrain = childSnapshot.val().firstTrain;
     var frequency = childSnapshot.val().frequency;
-    var nextArrival = childSnapshot.val().nextArrival;
-    var minAway = childSnapshot.val().minAway;
 
     console.log("firstTrain after childSnapshot: " + firstTrain);
 
@@ -132,7 +133,7 @@ database.ref().on("child_added", function (childSnapshot) {
     // the next train
     var nextTrain = moment().add(minNextTrain, "minutes");
     console.log("nextTrain (arrival time): " + nextTrain);
-        console.log("nextTrain formatted (arrival time): " + moment(nextTrain).format("HH:mm"));
+    console.log("nextTrain formatted (arrival time): " + moment(nextTrain).format("HH:mm"));
 
     // *****************************
     // Create the new row
@@ -172,7 +173,7 @@ database.ref().on("child_added", function (childSnapshot) {
 
 /**************************/
 
-// current time for display
+// Current time for display
 $("#time-now").append(moment().format("HH:mm"));
 $("#time-now").addClass("time-style");
 
@@ -185,7 +186,7 @@ function clockElement(){
 
 /**************************/
 
-/**************************/
+// Sort of like a media query
 
 $(window).resize(function () {
    
@@ -208,6 +209,5 @@ window.onload = function() {
     }
 
 }
-
 
 //**********//
